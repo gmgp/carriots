@@ -66,6 +66,12 @@ module Carriots
       def write_api_key
         ENV['CARRIOTS_WRITE_API_KEY']
       end
+
+      # Default login from ENV
+      # @return [String]
+      def login
+        ENV['CARRIOTS_LOGIN']
+      end
     end
   end
 end

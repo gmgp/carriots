@@ -34,7 +34,8 @@ describe Carriots::Client do
       before do
         @opts = {
           connection_options: { ssl: { verify: false } },
-          write_api_key: 'il0veruby'
+          write_api_key: 'il0veruby',
+          login: 'giovanni'
         }
       end
 
@@ -52,6 +53,7 @@ describe Carriots::Client do
           end
         end
         client.instance_variable_get(:"@write_api_key").must_equal('il0veruby')
+        client.login.must_equal('giovanni')
       end
 
       it 'masks write_api_key on inspect' do

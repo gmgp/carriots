@@ -1,5 +1,7 @@
 # client.rb
 require 'carriots/configurable'
+require 'carriots/connection'
+require 'carriots/api_methods'
 
 module Carriots
   # Client for the Carriot API
@@ -7,6 +9,8 @@ module Carriots
   # @see https://www.carriots.com/documentation/api
   class Client
     include Carriots::Configurable
+    include Carriots::Connection
+    include Carriots::ApiMethods
 
     def initialize(options = {})
       # Use options passed in, but fall back to module defaults
@@ -30,6 +34,10 @@ module Carriots
       end
 
       inspected
+    end
+
+    def default_device
+      "defaultDevice@#{login}.#{login}"
     end
 
     private

@@ -20,7 +20,7 @@ module Carriots
     # @!attribute web_endpoint
     #   @return [String] Base URL for web URLs. default: https://github.com/
 
-    attr_accessor :default_media_type, :connection_options, :user_agent
+    attr_accessor :default_media_type, :connection_options, :user_agent, :login
     attr_writer :web_endpoint, :api_endpoint, :write_api_key
 
     class << self
@@ -33,6 +33,7 @@ module Carriots
           :default_media_type,
           :user_agent,
           :web_endpoint,
+          :login,
           :write_api_key
         ]
       end
@@ -61,18 +62,18 @@ module Carriots
     end
 
     def api_endpoint
-      File.join(@api_endpoint, '')
+      @api_endpoint.to_s
     end
 
     # Base URL for generated web URLs
     #
     # @return [String] Default: https://carriots.com/
     def web_endpoint
-      File.join(@web_endpoint, '')
+      @web_endpoint.to_s
     end
 
     def write_api_key
-      File.join(@write_api_key, '')
+      @write_api_key.to_s
     end
 
     private
