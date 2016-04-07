@@ -1,4 +1,5 @@
 # default.rb
+require 'carriots/version'
 
 module Carriots
   # Default configuration options for {Client}

@@ -1,5 +1,5 @@
 require 'carriots/client'
-require 'carriots/version'
+require 'carriots/default'
 
 #
 #
