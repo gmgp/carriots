@@ -3,7 +3,7 @@
 module Carriots
   # Connecction options for {Client}
   #
-  module ApiMethods
+  module ApiCalls
     # general options for Carriots API
     #
     class Options

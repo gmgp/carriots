@@ -4,7 +4,7 @@ require_relative './options'
 module Carriots
   # Connecction options for {Client}
   #
-  module ApiMethods
+  module ApiCalls
     # options for /streams/ carriots API
     #
     class StreamsOptions < Options

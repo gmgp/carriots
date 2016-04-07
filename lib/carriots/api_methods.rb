@@ -1,18 +1,24 @@
 # api_methods.rb
-require_relative './api_methods/streams_options'
+require_relative './api_calls'
+require_relative './api_entities/streams'
 
 module Carriots
   # Connecction options for {Client}
   #
   module ApiMethods
-    def streams(options = {}, *args)
-      build_options = StreamsOptions.new(options).build_options
+    include ApiCalls
+    include ApiEntities
 
-      get("streams/#{build_options}", *args)
+    def streams(options = {}, *args)
+      @streams ||= Streams.new(response: call_streams(options, *args))
+    end
+
+    def streams!(options = {}, *args)
+      @streams = Streams.new(response: call_streams(options, *args))
     end
 
     def stream(device = default_device, *args)
-      get("streams/#{device}", *args)
+      call_stream(device, *args)
     end
   end
 end
