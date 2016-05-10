@@ -9,7 +9,13 @@ module Carriots
     #
     class StreamsOptions < Options
       def keys
-        [:device, :_t, :at, :at_to, :at_from, :max, :offset, :created_at, :created_at_to, :created_at_from]
+        [
+          :device, :_t,
+          :max, :offset,
+          :at, :at_to, :at_from,
+          :created_at, :created_at_to, :created_at_from,
+          :order
+        ]
       end
 
       private
@@ -52,6 +58,10 @@ module Carriots
 
       def param_created_at_from(value = nil)
         set_time_param(:created_at_from, value) if value
+      end
+
+      def param_order(value = nil)
+        set_param(:order, value) if value
       end
     end
   end
