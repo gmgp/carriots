@@ -1,5 +1,7 @@
 # connection.rb
 require 'faraday_middleware'
+require 'carriots/errors/connection'
+
 
 module Carriots
   # Connecction options for {Client}
