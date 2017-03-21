@@ -14,7 +14,11 @@ module Carriots
 
       def initialize(options = {}, *args)
         super
-        parse_response if status == 200
+        if status == 200
+          parse_response 
+        else 
+          raise "Bad response from server (#{status})"
+        end
       end
 
       def parse_response
