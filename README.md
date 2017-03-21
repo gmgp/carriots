@@ -60,6 +60,11 @@ You can override default and options value using ENV variable
   ENV['CARRIOTS_LOGIN']
 ```
 
+## Error Handling
+
+In the folder 'lib/carriots/errors' were defined some errors, for now it raise a 'ConnectionError' when something went wrong with the GET call to api comunicating the status and the reason phrase.
+
+
 
 ## Development
 

@@ -1,5 +1,7 @@
 # connection.rb
 require 'faraday_middleware'
+require 'carriots/errors/connection'
+
 
 module Carriots
   # Connecction options for {Client}
@@ -23,9 +25,11 @@ module Carriots
     end
 
     def get(path, params = nil)
-      connection.get(path) do |request|
+      res = connection.get(path) do |request|
         request.params = params if params
       end
+      raise Carriots::Errors::ConnectionError.new(res.status, res.reason_phrase) unless res.status == 200
+      res
     end
   end
 end
